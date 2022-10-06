@@ -1,31 +1,81 @@
 {
-    "posts": [{
-        "id": 1,
-        "name": "Satheesh",
-        "email": "Sat@mail.com",
-        "adderss": "South street"
-    }, {
-        "id": 2,
-        "name": "John",
-        "email": "john@mail.com",
-        "adderss": "North street"
-    }, {
-        "id": 3,
-        "name": "Robert",
-        "email": "robert@mail.com",
-        "adderss": "East street"
-    }, {
-        "id": 4,
-        "name": "Mani",
-        "email": "mani@mail.com",
-        "adderss": "West street"
-    }],
-    "comments": [{
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
-    }],
-    "profile": {
-        "name": "typicode"
+  "users": [
+    {
+      "name": "Solomon Mayer",
+      "email": "lane@mailinator.com",
+      "gender": "male",
+      "status": "false",
+      "id": 5
+    },
+    {
+      "name": "Nolan Nieves",
+      "email": "suga@mailinator.com",
+      "gender": "male",
+      "status": "false",
+      "id": 6
+    },
+    {
+      "name": "Jamal Miranda",
+      "email": "gixabezuzi@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 7
+    },
+    {
+      "name": "Dora Cervantes",
+      "email": "jaqoxuxaky@mailinator.com",
+      "gender": "male",
+      "status": "false",
+      "id": 8
+    },
+    {
+      "name": "Illiana Dillard",
+      "email": "lisuculam@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 9
+    },
+    {
+      "name": "Aquila Montoya",
+      "email": "mures@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 10
+    },
+    {
+      "name": "Wyoming Knapp",
+      "email": "duqoc@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 11
+    },
+    {
+      "name": "Dana Baird",
+      "email": "mutoxeji@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 12
+    },
+    {
+      "name": "Catherine Brown",
+      "email": "nezymyhafo@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 13
+    },
+    {
+      "name": "Erasmus Hensley",
+      "email": "comadimu@mailinator.com",
+      "gender": "female",
+      "status": "false",
+      "id": 14
+    },
+    {
+      "name": "Camden Farrell",
+      "email": "mydyvibif@mailinator.com",
+      "gender": "male",
+      "status": "false",
+      "id": 15
     }
+  ]
 }
