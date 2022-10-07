@@ -35,7 +35,7 @@ const ModalComponent = ({ users, setUsers }) => {
     <>
       <div className="flex justify-end">
         <button
-          className=" bg-blue-500 mt-3  text-white active:bg-dark-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 bg-dark"
+          className=" bg-blue-600 mt-3  text-white active:bg-dark-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 bg-dark"
           type="button"
           onClick={() => setShowModal(true)}
         >
