@@ -1,20 +1,21 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import LoadingComponent from "./LoadingComponent";
 import ModalComponent from "./ModalComponent";
 
 const UserData = () => {
-  const [user, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchData();
+
   }, []);
 
   const fetchData = async () => {
-    setLoading(true);
     try {
+      setLoading(true);
       const result = await axios.get("http://localhost:4000/users");
       setLoading(false);
       setUsers(result.data);
@@ -23,9 +24,15 @@ const UserData = () => {
     }
   };
 
+  
+
   return (
     <>
-      <ModalComponent />
+      <div className="flex justify-end">
+        <ModalComponent
+          users={users} setUsers={setUsers}
+        />
+      </div>
       {loading ? (
         <LoadingComponent />
       ) : (
@@ -54,7 +61,7 @@ const UserData = () => {
               </tr>
             </thead>
             <tbody>
-              {user.map((item) => (
+              {users.map((item) => (
                 <tr
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
                   key={item.id}
@@ -85,7 +92,7 @@ const UserData = () => {
                   </td>
                   <td className="py-4 px-6">
                     <Link>
-                      <pre className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 cursor-pointer">
+                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 cursor-pointer">
                         <svg
                           className="w-5 h-5 mr-1"
                           fill="none"
@@ -107,7 +114,7 @@ const UserData = () => {
                           />
                         </svg>
                         See more
-                      </pre>
+                      </span>
                     </Link>
                   </td>
                 </tr>

@@ -1,81 +1,32 @@
 {
   "users": [
     {
-      "name": "Solomon Mayer",
-      "email": "lane@mailinator.com",
-      "gender": "male",
-      "status": "false",
-      "id": 5
-    },
-    {
-      "name": "Nolan Nieves",
-      "email": "suga@mailinator.com",
-      "gender": "male",
-      "status": "false",
-      "id": 6
-    },
-    {
-      "name": "Jamal Miranda",
-      "email": "gixabezuzi@mailinator.com",
-      "gender": "male",
+      "name": "Kyla Griffin",
+      "email": "xigawa@mailinator.com",
+      "gender": "female",
       "status": false,
-      "id": 7
+      "id": 1
     },
     {
-      "name": "Dora Cervantes",
-      "email": "jaqoxuxaky@mailinator.com",
-      "gender": "male",
-      "status": "false",
-      "id": 8
-    },
-    {
-      "name": "Illiana Dillard",
-      "email": "lisuculam@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 9
-    },
-    {
-      "name": "Aquila Montoya",
-      "email": "mures@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 10
-    },
-    {
-      "name": "Wyoming Knapp",
-      "email": "duqoc@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 11
-    },
-    {
-      "name": "Dana Baird",
-      "email": "mutoxeji@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 12
-    },
-    {
-      "name": "Catherine Brown",
-      "email": "nezymyhafo@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 13
-    },
-    {
-      "name": "Erasmus Hensley",
-      "email": "comadimu@mailinator.com",
+      "name": "Isadora Ford",
+      "email": "jire@mailinator.com",
       "gender": "female",
       "status": "false",
-      "id": 14
+      "id": 2
     },
     {
-      "name": "Camden Farrell",
-      "email": "mydyvibif@mailinator.com",
-      "gender": "male",
+      "name": "Pamela Reynolds",
+      "email": "muwubynajo@mailinator.com",
+      "gender": "female",
       "status": "false",
-      "id": 15
+      "id": 3
+    },
+    {
+      "name": "Kiara Blair",
+      "email": "denifawa@mailinator.com",
+      "gender": "female",
+      "status": "false",
+      "id": 4
     }
   ]
 }

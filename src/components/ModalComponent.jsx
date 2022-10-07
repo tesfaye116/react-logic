@@ -2,25 +2,29 @@ import axios from "axios";
 import { useState } from "react";
 import "../index.css";
 
-const ModalComponent = () => {
+const ModalComponent = ({ users, setUsers }) => {
   const [showModal, setShowModal] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [status, setStatus] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    gender: "",
+    status: false
+  });
+ 
+  console.log(users);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:4000/users", {
-        name,
-        email,
-        gender,
-        status,
+    await axios
+      .post("http://localhost:4000/users/", {
+        name : form.name,
+        email: form.email,
+        gender: form.gender,
+        status: form.status,
       })
       .then((res) => {
         setShowModal(false);
-        console.log(res);
+        setUsers([...users,  res.data] )
       })
       .catch((err) => {
         console.log(err);
@@ -31,11 +35,12 @@ const ModalComponent = () => {
     <>
       <div className="flex justify-end">
         <button
-          className=" bg-blue-500 mt-3  text-white active:bg-dark-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className=" bg-blue-500 mt-3  text-white active:bg-dark-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 bg-dark"
           type="button"
           onClick={() => setShowModal(true)}
         >
-          <i className="fas fa-user-plus"></i>
+          <i className="fas fa-user-plus mr-1"></i>
+          <span>Register</span>
         </button>
       </div>
       {showModal ? (
@@ -73,8 +78,8 @@ const ModalComponent = () => {
                         id="name"
                         type="text"
                         placeholder="Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form , name : e.target.value})}
                         required
                       />
                     </div>
@@ -90,8 +95,8 @@ const ModalComponent = () => {
                         id="email"
                         type="email"
                         placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={form.email}
+                        onChange={(e) => setForm({...form, email: e.target.value})}
                         required
                       />
                     </div>
@@ -105,9 +110,8 @@ const ModalComponent = () => {
                       <select
                         className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-state"
-                        value={gender}
-                        onChange={(e) => setGender(e.target.value)}
-                      >
+                        value={form.gender}
+                        onChange={(e) => setForm({ ...form, gender: e.target.value })}                      >
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                       </select>
@@ -124,17 +128,16 @@ const ModalComponent = () => {
                           className="mr-2 leading-tight bg-gray-200"
                           type="checkbox"
                           id="status"
-                          value={status}
-                          onChange={(e) => setStatus(e.target.value)}
-                        />
+                          value={form.status}
+                          onChange={(e) => setForm({ ...form, status: e.target.value })}                        />
                         <label className="text-sm" htmlFor="status">
-                          {status ? "Active" : "Inactive"}
+                          {form.status ? "Active" : "Inactive"}
                         </label>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
                       <button
-                        className="w-full bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="w-full bg-gray-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
                         type="submit"
                       >
                         Register
