@@ -8,23 +8,23 @@ const ModalComponent = ({ users, setUsers }) => {
     name: "",
     email: "",
     gender: "",
-    status: false
+    status: false,
   });
- 
+
   console.log(users);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios
       .post("http://localhost:4000/users/", {
-        name : form.name,
+        name: form.name,
         email: form.email,
         gender: form.gender,
         status: form.status,
       })
       .then((res) => {
         setShowModal(false);
-        setUsers([...users,  res.data] )
+        setUsers([...users, res.data]);
       })
       .catch((err) => {
         console.log(err);
@@ -79,7 +79,9 @@ const ModalComponent = ({ users, setUsers }) => {
                         type="text"
                         placeholder="Name"
                         value={form.name}
-                        onChange={(e) => setForm({ ...form , name : e.target.value})}
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
                         required
                       />
                     </div>
@@ -96,7 +98,9 @@ const ModalComponent = ({ users, setUsers }) => {
                         type="email"
                         placeholder="Email"
                         value={form.email}
-                        onChange={(e) => setForm({...form, email: e.target.value})}
+                        onChange={(e) =>
+                          setForm({ ...form, email: e.target.value })
+                        }
                         required
                       />
                     </div>
@@ -111,7 +115,10 @@ const ModalComponent = ({ users, setUsers }) => {
                         className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="grid-state"
                         value={form.gender}
-                        onChange={(e) => setForm({ ...form, gender: e.target.value })}                      >
+                        onChange={(e) =>
+                          setForm({ ...form, gender: e.target.value })
+                        }
+                      >
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                       </select>
@@ -129,7 +136,10 @@ const ModalComponent = ({ users, setUsers }) => {
                           type="checkbox"
                           id="status"
                           value={form.status}
-                          onChange={(e) => setForm({ ...form, status: e.target.value })}                        />
+                          onChange={(e) =>
+                            setForm({ ...form, status: e.target.value })
+                          }
+                        />
                         <label className="text-sm" htmlFor="status">
                           {form.status ? "Active" : "Inactive"}
                         </label>
