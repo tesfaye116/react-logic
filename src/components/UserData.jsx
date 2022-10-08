@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LoadingComponent from "./LoadingComponent";
 import ModalComponent from "./ModalComponent";
@@ -7,10 +6,12 @@ import ModalComponent from "./ModalComponent";
 const UserData = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [editUser, setEditUser] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
 
   useEffect(() => {
     fetchData();
-
   }, []);
 
   const fetchData = async () => {
@@ -24,21 +25,55 @@ const UserData = () => {
     }
   };
 
-  
+  const handleDelete = async (id) => {
+    console.log(id);
+    try {
+      await axios.delete(`http://localhost:4000/users/${id}`);
+      setUsers(users.filter((user) => user.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleEdit = async (id) => {
+    const user = users.find((user) => user.id === id) || {};
+    console.log(user);
+    setEditUser(user);
+    setEditModal(true);
+  };
 
   return (
     <>
       <div className="flex justify-end">
+        <button
+          className=" bg-blue-600 mt-3 mr-1 text-white active:bg-dark-600 font-bold uppercase text-sm  px-5 py-2 rounded shadow  hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 bg-dark"
+          type="button"
+          onClick={() => setShowModal(true)}
+        >
+          <i className="fas fa-user-plus mr-1"></i>
+          <small>Register</small>
+        </button>
+      </div>
+
+      {/* Modal component  */}
+      <div className="flex justify-end mb-2">
         <ModalComponent
-          users={users} setUsers={setUsers}
+          users={users}
+          setUsers={setUsers}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          editUser={editUser}
+          editModal={editModal}
+          setEditModal={setEditModal}
         />
       </div>
+
       {loading ? (
         <LoadingComponent />
       ) : (
-        <div className="overflow-x-auto relative mt-1">
+        <div className="overflow-x-auto relative mt-1 flex justify-center align-middle">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
-            <thead className="text-xm  text-gray-700 uppercase bg-blue-200  dark:bg-gray-700 dark:text-white">
+            <thead className="text-xm  text-gray-900 uppercase bg-gray-200  dark:bg-gray-100 dark:text-white">
               <tr>
                 <th scope="col" className="py-3 px-6">
                   SN
@@ -56,69 +91,67 @@ const UserData = () => {
                   Status
                 </th>
                 <th scope="col" className="py-3 px-6">
-                  post
+                  Action
                 </th>
               </tr>
             </thead>
             <tbody>
-              {users.map((item) => (
-                <tr
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                  key={item.id}
-                >
-                  <td className=" font-medium text-gray-900 whitespace-nowrap dark:text-white py-4 px-6">
-                    {item.id}
-                  </td>
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+              {users.length > 0 ? (
+                users.map((item) => (
+                  <tr
+                    className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                    key={item.id}
                   >
-                    {item.name}
-                  </th>
-                  <td className="py-4 px-6 text-sm leading-5 text-gray-500 dark:text-gray-400">
-                    {item.email}
-                  </td>
-                  <td className="py-4 px-6">{item.gender}</td>
-                  <td className="py-4 px-6">
-                    {item.status ? (
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800">
-                        Active
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800">
-                        Inactive
-                      </span>
-                    )}
-                  </td>
-                  <td className="py-4 px-6">
-                    <Link>
-                      <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 cursor-pointer">
-                        <svg
-                          className="w-5 h-5 mr-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                          />
-                        </svg>
-                        See more
-                      </span>
-                    </Link>
+                    <td className=" font-medium text-gray-900 whitespace-nowrap dark:text-white py-4 px-6">
+                      {item.id}
+                    </td>
+                    <th
+                      scope="row"
+                      className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    >
+                      {item.name}
+                    </th>
+                    <td className="py-4 px-6 text-sm leading-5 text-gray-500 dark:text-gray-400">
+                      {item.email}
+                    </td>
+                    <td className="py-4 px-6">{item.gender}</td>
+                    <td className="py-4 px-6">
+                      {item.status ? (
+                        <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800">
+                          Active
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium leading-5 bg-red-100 text-red-800">
+                          Inactive
+                        </span>
+                      )}
+                    </td>
+                    <td className="py-4 px-6 flex justify-left">
+                      <button
+                        onClick={() => handleEdit(item.id)}
+                        className="font-medium text-blue-600"
+                      >
+                        <i className="fa fa-pen"></i>
+                      </button>
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="font-medium ml-3 text-red-500"
+                      >
+                        <i className="fa fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <td
+                    colSpan="6"
+                    className="text-center text-gray-500 dark:text-gray-400"
+                  >
+                    <i className="fa fa-frown"></i> No data found
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

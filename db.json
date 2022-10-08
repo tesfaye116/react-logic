@@ -1,67 +1,25 @@
 {
   "users": [
     {
-      "name": "Kyla Griffin",
-      "email": "xigawa@mailinator.com",
+      "name": "Amy Mcfadden",
+      "email": "doqeqice@mailinator.com",
       "gender": "female",
-      "status": false,
+      "status": "",
       "id": 1
     },
     {
-      "name": "Isadora Ford",
-      "email": "jire@mailinator.com",
-      "gender": "female",
-      "status": "false",
+      "name": "Ariel Vaughan",
+      "email": "nucuz@mailinator.com",
+      "gender": "male",
+      "status": "",
       "id": 2
     },
     {
-      "name": "Pamela Reynolds",
-      "email": "muwubynajo@mailinator.com",
-      "gender": "female",
-      "status": "false",
+      "name": "Kevyn Medina",
+      "email": "tetugeq@mailinator.com",
+      "gender": "male",
+      "status": "",
       "id": 3
-    },
-    {
-      "name": "Kiara Blair",
-      "email": "denifawa@mailinator.com",
-      "gender": "female",
-      "status": "false",
-      "id": 4
-    },
-    {
-      "name": "Lysandra Morse",
-      "email": "vucitu@mailinator.com",
-      "gender": "female",
-      "status": "false",
-      "id": 5
-    },
-    {
-      "name": "George Harvey",
-      "email": "byhekakahe@mailinator.com",
-      "gender": "male",
-      "status": "false",
-      "id": 6
-    },
-    {
-      "name": "Leah Levine",
-      "email": "dufi@mailinator.com",
-      "gender": "male",
-      "status": "false",
-      "id": 7
-    },
-    {
-      "name": "Anastasia Stephenson",
-      "email": "zematan@mailinator.com",
-      "gender": "male",
-      "status": "Active",
-      "id": 8
-    },
-    {
-      "name": "Anastasia Stephenson",
-      "email": "zematan@mailinator.com",
-      "gender": "male",
-      "status": "Active",
-      "id": 9
     }
   ]
 }

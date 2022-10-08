@@ -16,7 +16,7 @@ const NavBar = () => {
                   alt="logo"
                   width={55}
                 />
-                <label className="text-3xl " htmlFor="meta">
+                <label className="font-sans text-3xl" htmlFor="meta">
                   M E T A
                 </label>
               </h2>
