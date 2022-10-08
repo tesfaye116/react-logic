@@ -7,9 +7,10 @@ const ModalComponent = ({
   setUsers,
   setShowModal,
   showModal,
-  editUser,
   editModal,
   setEditModal,
+  editUser,
+  setEditUser,
 }) => {
   const [form, setForm] = useState({
     name: "",
@@ -102,9 +103,9 @@ const ModalComponent = ({
                         type="text"
                         placeholder="Name"
                         value={editUser ? editUser.name : form.name}
-                        onChange={(e) =>
-                          setForm({ ...form, name: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setForm({ ...form, name: e.target.value });
+                        }}
                         required
                       />
                     </div>
@@ -135,8 +136,8 @@ const ModalComponent = ({
                         Gender
                       </label>
                       <select
-                        className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="gender"
+                        className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         value={editUser ? editUser.gender : form.gender}
                         onChange={(e) =>
                           setForm({ ...form, gender: e.target.value })
@@ -153,20 +154,16 @@ const ModalComponent = ({
                       >
                         Status
                       </label>
-                      <div className="flex">
-                        <input
-                          className="mr-2 leading-tight bg-gray-200"
-                          type="checkbox"
-                          id="status"
-                          value={editUser ? editUser.status : form.status}
-                          onChange={(e) =>
-                            setForm({ ...form, status: e.target.value })
-                          }
-                        />
-                        <label className="text-sm" htmlFor="status">
-                          {form.status ? "Active" : "Inactive"}
-                        </label>
-                      </div>
+                      <input
+                        className="mr-2 leading-tight"
+                        type="checkbox"
+                        id="status"
+                        checked={editUser ? editUser.status : form.status}
+                        onChange={(e) =>
+                          setForm({ ...form, status: e.target.checked })
+                        }
+                      />
+                      <span className="text-sm">Is Active</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <button

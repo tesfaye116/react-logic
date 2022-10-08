@@ -62,9 +62,10 @@ const UserData = () => {
           setUsers={setUsers}
           showModal={showModal}
           setShowModal={setShowModal}
-          editUser={editUser}
           editModal={editModal}
           setEditModal={setEditModal}
+          editUser={editUser}
+          setEditUser={setEditUser}
         />
       </div>
 

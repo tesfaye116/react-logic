@@ -1,25 +1,46 @@
 {
   "users": [
     {
-      "name": "Amy Mcfadden",
-      "email": "doqeqice@mailinator.com",
+      "name": "Gabriel Acevedo",
+      "email": "rocah@mailinator.com",
       "gender": "female",
-      "status": "",
-      "id": 1
-    },
-    {
-      "name": "Ariel Vaughan",
-      "email": "nucuz@mailinator.com",
-      "gender": "male",
-      "status": "",
+      "status": false,
       "id": 2
     },
     {
-      "name": "Kevyn Medina",
-      "email": "tetugeq@mailinator.com",
+      "name": "Brett Kline",
+      "email": "fajyk@mailinator.com",
       "gender": "male",
-      "status": "",
+      "status": true,
       "id": 3
+    },
+    {
+      "name": "Nolan Gamble",
+      "email": "nijoryci@mailinator.com",
+      "gender": "female",
+      "status": true,
+      "id": 4
+    },
+    {
+      "name": "Winifred Head",
+      "email": "kijezic@mailinator.com",
+      "gender": "female",
+      "status": true,
+      "id": 5
+    },
+    {
+      "name": "Cynthia Herring",
+      "email": "tibyxiji@mailinator.com",
+      "gender": "female",
+      "status": true,
+      "id": 6
+    },
+    {
+      "name": "Byron Leblanc",
+      "email": "ryqihijos@mailinator.com",
+      "gender": "male",
+      "status": false,
+      "id": 7
     }
   ]
 }
