@@ -104,7 +104,9 @@ const ModalComponent = ({
                         placeholder="Name"
                         value={editUser ? editUser.name : form.name}
                         onChange={(e) => {
-                          setForm({ ...form, name: e.target.value });
+                          editUser
+                            ? setEditUser({ ...form, name: e.target.value })
+                            : setForm({ ...form, name: e.target.value });
                         }}
                         required
                       />
