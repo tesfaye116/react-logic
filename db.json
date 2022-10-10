@@ -1,53 +1,39 @@
 {
   "users": [
     {
-      "name": "Gabriel Acevedo",
-      "email": "rocah@mailinator.com",
-      "gender": "female",
-      "status": false,
+      "name": "Autumn Haynes",
+      "email": "mefoty@mailinator.com",
+      "gender": "male",
+      "status": true,
+      "id": 1
+    },
+    {
+      "name": "Cameran Leblanc",
+      "email": "fewumune@mailinator.com",
+      "gender": "male",
+      "status": true,
       "id": 2
     },
     {
-      "name": "Brett Kline",
-      "email": "fajyk@mailinator.com",
-      "gender": "male",
+      "name": "Scarlet Lee",
+      "email": "nacybo@mailinator.com",
+      "gender": "female",
       "status": true,
       "id": 3
     },
     {
-      "name": "Nolan Gamble",
-      "email": "nijoryci@mailinator.com",
-      "gender": "female",
+      "name": "Alvin Stafford",
+      "email": "hozata@mailinator.com",
+      "gender": "male",
       "status": true,
       "id": 4
     },
     {
-      "name": "Winifred Head",
-      "email": "kijezic@mailinator.com",
+      "name": "Chester Yang",
+      "email": "rumypuqav@mailinator.com",
       "gender": "female",
-      "status": true,
+      "status": false,
       "id": 5
-    },
-    {
-      "name": "Cynthia Herring",
-      "email": "tibyxiji@mailinator.com",
-      "gender": "female",
-      "status": true,
-      "id": 6
-    },
-    {
-      "name": "Byron Leblanc",
-      "email": "ryqihijos@mailinator.com",
-      "gender": "male",
-      "status": false,
-      "id": 7
-    },
-    {
-      "name": "",
-      "email": "cubizu@mailinator.com",
-      "gender": "female",
-      "status": false,
-      "id": 8
     }
   ]
 }

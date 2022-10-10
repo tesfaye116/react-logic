@@ -42,13 +42,13 @@ const ModalComponent = ({
     e.preventDefault();
     await axios
       .put(`http://localhost:4000/users/${editUser.id}`, {
-        name: form.name,
-        email: form.email,
-        gender: form.gender,
-        status: form.status,
+        name: editUser.name,
+        email: editUser.email,
+        gender: editUser.gender,
+        status: editUser.status,
       })
       .then((res) => {
-        setShowModal(false);
+        setEditModal(false);
         console.log(res.data);
         const newUsers = users.map((user) => {
           if (user.id === editUser.id) {
@@ -104,8 +104,8 @@ const ModalComponent = ({
                         placeholder="Name"
                         value={editUser ? editUser.name : form.name}
                         onChange={(e) => {
-                          editUser
-                            ? setEditUser({ ...form, name: e.target.value })
+                          editModal
+                            ? setEditUser({ ...editUser, name: e.target.value })
                             : setForm({ ...form, name: e.target.value });
                         }}
                         required
@@ -125,7 +125,12 @@ const ModalComponent = ({
                         placeholder="Email"
                         value={editUser ? editUser.email : form.email}
                         onChange={(e) =>
-                          setForm({ ...form, email: e.target.value })
+                          editModal
+                            ? setEditUser({
+                                ...editUser,
+                                email: e.target.value,
+                              })
+                            : setForm({ ...form, email: e.target.value })
                         }
                         required
                       />
@@ -142,7 +147,12 @@ const ModalComponent = ({
                         className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         value={editUser ? editUser.gender : form.gender}
                         onChange={(e) =>
-                          setForm({ ...form, gender: e.target.value })
+                          editModal
+                            ? setEditUser({
+                                ...editUser,
+                                gender: e.target.value,
+                              })
+                            : setForm({ ...form, gender: e.target.value })
                         }
                       >
                         <option value="male">Male</option>
@@ -162,10 +172,15 @@ const ModalComponent = ({
                         id="status"
                         checked={editUser ? editUser.status : form.status}
                         onChange={(e) =>
-                          setForm({ ...form, status: e.target.checked })
+                          editModal
+                            ? setEditUser({
+                                ...editUser,
+                                status: e.target.checked,
+                              })
+                            : setForm({ ...form, status: e.target.checked })
                         }
                       />
-                      <span className="text-sm">Is Active</span>
+                      <span className="text-sm">IsActive</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <button
